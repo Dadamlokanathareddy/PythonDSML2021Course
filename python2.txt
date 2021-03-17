@@ -1,0 +1,12 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        if nums.count(target/2) == 2: # if case 3+3(seperated) etc. 
+            pos = nums.index(target/2)# find the first 3 and record its position. 
+            nums.pop(nums.index(target/2))# drop the first 3.
+            return [pos,nums.index(target/2)+1]# plus 1 because the index of second 3 were -1 because of the drop 
+        else:
+            for i in nums:
+                if i == target/2:
+                    continue# break the recent loop. 
+                if target-i in nums:
+                    return [nums.index(i),nums.index(target-i)]
